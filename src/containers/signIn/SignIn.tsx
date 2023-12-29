@@ -3,6 +3,9 @@ import "./SignIn.scss";
 import InputField from "../../components/input/InputField";
 import CButton from "../../components/button/CButton";
 import { MouseEventHandler, useState } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { userSignIn } from "../../store/actions";
+import { AppDispatch, RootState } from "../../store";
 
 type loginDetailstype = {
   userName: string;
@@ -17,6 +20,8 @@ type signInPropType = {
 };
 
 const SignIn = (prop: signInPropType): JSX.Element => {
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const [loginDetails, setLoginDetails] = useState<loginDetailstype>({
     userName: "",
     password: "",
@@ -27,16 +32,35 @@ const SignIn = (prop: signInPropType): JSX.Element => {
     const { name, value } = e.target;
     setLoginDetails({ ...loginDetails, [name]: value });
   };
-  const handleSignIn = () => {
+
+  const handleSignIn = (): void => {
     let errors: errorType;
     errors = validate(loginDetails);
     if (Object.keys(errors).length === 0) {
       console.log("Backend request:", loginDetails);
+      dispatch(userSignIn(loginDetails));
     } else {
       console.log(errors);
       setFormErrors(errors);
     }
   };
+
+  const {
+    isUserSignIn,
+    isSignInUserFail,
+    isSignInUserSuccess,
+    userDetails,
+    error,
+  } = useAppSelector((state) => state.loginreducer);
+  console.log(
+    ";;;;",
+    isUserSignIn,
+    isSignInUserFail,
+    isSignInUserSuccess,
+    userDetails,
+    error
+  );
+
   const validate = (value: loginDetailstype): errorType => {
     const errors: errorType = {};
     if (!value.userName) errors.username = "Please enter Username";

@@ -1,0 +1,15 @@
+.ladingcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(185, 185, 185, 0.3);
+  z-index: 1;
+  position: absolute;
+  //   opacity: 0.5;
+}
+.spinnerrow {
+  z-index: 2;
+  opacity: 1;
+}

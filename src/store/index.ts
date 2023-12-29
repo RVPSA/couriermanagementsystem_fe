@@ -17,5 +17,8 @@ const store = configureStore({
     }).concat(sagaMiddleware),
   devTools: true,
 });
-
+sagaMiddleware.run(rootSaga);
 export default store;
+
+export type AppDispatch = typeof store.dispatch; // Here we export the store's dispatch type
+export type RootState = ReturnType<typeof store.getState>; // Here we export the store's state
