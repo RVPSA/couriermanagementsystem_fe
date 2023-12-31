@@ -1,0 +1,28 @@
+.signUpContainer {
+  background-color: white;
+  border-radius: 5%;
+  margin: 0px !important;
+  //   padding-left: 0px !important;
+  //   padding-right: 0px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.signUp {
+  // background-color: whitesmoke;
+  padding: 50px !important;
+}
+.signUpDesc {
+  background-color: rgb(19, 19, 146);
+  border-top-right-radius: 15%;
+  border-bottom-right-radius: 15%;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
+  padding: 50px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.colgap {
+  padding-top: 25px;
+}

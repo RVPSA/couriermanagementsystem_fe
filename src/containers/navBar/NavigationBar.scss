@@ -1,0 +1,15 @@
+.navContainer {
+  background-color: rgb(197, 197, 223);
+}
+.navRow {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
