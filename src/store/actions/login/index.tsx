@@ -4,14 +4,14 @@ type loginDetailstype = {
   userName: string;
   password: string;
 };
-declare global {
-  type returnType = {
-    type: string;
-    data?: any;
-  };
-}
+// declare global {
+//   type returnType = {
+//     type: string;
+//     data?: any;
+//   };
+// }
 
-export const userSignIn = (data: loginDetailstype): returnType => {
+export const userSignIn = (data: loginDetailstype): actionType => {
   return {
     type: USER_SIGNIN,
     data: data,

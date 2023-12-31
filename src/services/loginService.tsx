@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { baseURL } from "./httpClient";
+import { backendUrl } from "./httpClient";
 
 type loginDetailstype = {
   userName: string;
@@ -8,6 +8,9 @@ type loginDetailstype = {
 export const signInService = async (
   data: loginDetailstype
 ): Promise<AxiosResponse> => {
-  const response = await baseURL.post("/User/TestLogUser", data);
+  const response: AxiosResponse = await backendUrl.post(
+    "/User/LoginUSer",
+    data
+  );
   return response;
 };

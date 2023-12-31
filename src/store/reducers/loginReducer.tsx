@@ -8,12 +8,12 @@ type stateType = {
   error: string;
 };
 
-declare global {
-  type actionType = {
-    type: string;
-    data?: any;
-  };
-}
+// declare global {
+//   type actionType = {
+//     type: string;
+//     data?: any;
+//   };
+// }
 
 const initialState: stateType = {
   isUserSignIn: false,

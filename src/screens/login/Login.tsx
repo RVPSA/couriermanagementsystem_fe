@@ -26,9 +26,7 @@ const Login = (): JSX.Element => {
     (state) => state.loginreducer
   );
 
-  useEffect(() => {
-    console.log("is modal open?closed");
-  }, [isModalOpen]);
+  useEffect(() => {}, [isModalOpen]);
 
   return (
     <>

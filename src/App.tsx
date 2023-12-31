@@ -1,11 +1,9 @@
-import Login from "./screens/login/Login";
+import Navigation from "./routes";
 
 function App() {
   return (
     <>
-      {/* <Container fluid> */}
-      <Login></Login>
-      {/* </Container> */}
+      <Navigation></Navigation>
     </>
   );
 }

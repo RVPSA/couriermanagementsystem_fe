@@ -2,7 +2,7 @@ import { Col, Container, Row } from "reactstrap";
 import "./SignIn.scss";
 import InputField from "../../components/input/InputField";
 import CButton from "../../components/button/CButton";
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { userSignIn } from "../../store/actions";
 import { AppDispatch, RootState } from "../../store";
@@ -45,21 +45,10 @@ const SignIn = (prop: signInPropType): JSX.Element => {
     }
   };
 
-  const {
-    isUserSignIn,
-    isSignInUserFail,
-    isSignInUserSuccess,
-    userDetails,
-    error,
-  } = useAppSelector((state) => state.loginreducer);
-  console.log(
-    ";;;;",
-    isUserSignIn,
-    isSignInUserFail,
-    isSignInUserSuccess,
-    userDetails,
-    error
-  );
+  const { isUserSignIn, isSignInUserFail, isSignInUserSuccess } =
+    useAppSelector((state) => state.loginreducer);
+
+  useEffect(() => {}, [isUserSignIn, isSignInUserFail, isSignInUserSuccess]);
 
   const validate = (value: loginDetailstype): errorType => {
     const errors: errorType = {};
