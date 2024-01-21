@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import NavigationBar from "../containers/navBar/NavigationBar";
 
-const DefaultLayout = () => {
+const DefaultLayout = (): JSX.Element => {
   let currentUser: string | null = localStorage.getItem("currentUser");
 
   let currentUserObject: currentUserType = {
@@ -14,18 +14,18 @@ const DefaultLayout = () => {
     currentUserObject = JSON.parse(currentUser);
   }
 
-  return (
-    <div>
-      <NavigationBar></NavigationBar>
+  if (currentUserObject.userRoleId != 0) {
+    return (
       <div>
-        {currentUserObject.userRoleId != 0 ? (
+        <NavigationBar></NavigationBar>
+        <div>
           <Outlet></Outlet>
-        ) : (
-          <Navigate to="/"></Navigate>
-        )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <Navigate to="/"></Navigate>;
+  }
 };
 
 export default DefaultLayout;

@@ -13,6 +13,18 @@ import "./NavigationBar.scss";
 import { Link, Navigate, redirect } from "react-router-dom";
 
 const NavigationBar = (): JSX.Element => {
+  let currentUser: string | null = localStorage.getItem("currentUser");
+
+  let currentUserObject: currentUserType = {
+    userName: "",
+    userId: 0,
+    userRoleId: 0,
+  };
+
+  if (typeof currentUser === "string") {
+    currentUserObject = JSON.parse(currentUser);
+  }
+
   return (
     <>
       <Container fluid className="navContainer">
@@ -21,9 +33,21 @@ const NavigationBar = (): JSX.Element => {
             Courier Management System
           </Col>
           <Col xs="8" className="navItem">
-            <Col>Link 1</Col>
-            <Col>Link 2</Col>
-            <Col>Link 3</Col>
+            {/* Admin */}
+            {currentUserObject.userRoleId === 1 && (
+              <>
+                <Col>Link 1</Col>
+                <Col>Link 2</Col>
+                <Col>Link 3</Col>
+              </>
+            )}
+            {/*  */}
+            {currentUserObject.userRoleId === 2 && (
+              <>
+                <Col>Link 1</Col>
+                <Col>Link 2</Col>
+              </>
+            )}
             <Col>
               <Button
                 onClick={() => {

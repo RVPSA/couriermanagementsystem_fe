@@ -3,18 +3,6 @@ import { USER_SIGNIN, USER_SIGNIN_FAIL, USER_SIGNIN_SUCCESS } from "../actions";
 import { signInService } from "../../services/loginService";
 import { AxiosResponse } from "axios";
 
-// declare global {
-//   type incomeType = {
-//     type: string;
-//     data: any;
-//   };
-//   type generalResponse = {
-//     statusCode: number;
-//     message: string;
-//     result: any;
-//   };
-// }
-
 export function* userSignIn(value: sagaInputType) {
   const { data } = value;
   try {
