@@ -4,18 +4,21 @@ type headerType = {
   "Content-Type": string;
   userId?: number;
   userRoleId?: number;
+  userName?: string;
 };
 
 const getHeaders = (): headerType => {
   let currentUser: string | null = localStorage.getItem("currentUser");
   let currentUserObject: currentUserType;
   let header: headerType;
+
   if (typeof currentUser === "string") {
     currentUserObject = JSON.parse(currentUser);
     header = {
       "Content-Type": "application/json",
       userId: Number(currentUserObject.userId),
       userRoleId: Number(currentUserObject.userId),
+      userName: currentUserObject.userName,
     };
     return header;
   } else {
