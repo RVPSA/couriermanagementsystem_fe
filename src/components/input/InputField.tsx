@@ -1,7 +1,7 @@
-import { Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { FormFeedback, FormGroup, Input } from "reactstrap";
 import { InputType } from "reactstrap/types/lib/Input";
 import "./InputField.scss";
-import { ChangeEventHandler, KeyboardEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 
 type InputFieldProps = {
   id: string;
@@ -16,7 +16,6 @@ type InputFieldProps = {
 const InputField = (prop: InputFieldProps): JSX.Element => {
   return (
     <>
-      {/* <Form> */}
       <FormGroup>
         <Input
           id={prop.id}
@@ -28,9 +27,7 @@ const InputField = (prop: InputFieldProps): JSX.Element => {
           invalid={prop.invalid}
         ></Input>
         <FormFeedback valid={!prop.invalid}>{prop.formFeedBack}</FormFeedback>
-        {/* <Label>Username</Label> */}
       </FormGroup>
-      {/* </Form> */}
     </>
   );
 };
