@@ -1,8 +1,8 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../screens/login/Login";
 import DefaultLayout from "./DefaultLayout";
 import Maintaince from "../screens/maintaince/Maintaince";
-import AddAdmin from "../screens/addAdmin/AddAdmin";
+import { RoutePath } from "./routingPath";
 
 const Navigation = () => {
   const currentUser: string | null = localStorage.getItem("currentUser");
@@ -23,15 +23,15 @@ const Navigation = () => {
         <Route path="/" element={<Login></Login>}></Route>
         <Route element={<DefaultLayout></DefaultLayout>}>
           {/* Admin */}
-          {currentUserObject.userRoleId === 1 && (
-            <>
-              <Route
-                path="/maintaince"
-                element={<Maintaince></Maintaince>}
-              ></Route>
-              <Route path="/addAdmin" element={<AddAdmin></AddAdmin>}></Route>
-            </>
-          )}
+          {currentUserObject.userRoleId === 1 &&
+            RoutePath.AdminRouting.map((item) => {
+              return (
+                <>
+                  <Route path={item.path} element={item.element}></Route>
+                </>
+              );
+            })}
+          {/* Courier Company */}
           {currentUserObject.userRoleId === 2 && (
             <>
               <Route
