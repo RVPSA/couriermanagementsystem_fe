@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import AddAdmin from "../screens/addAdmin/AddAdmin";
 import Maintaince from "../screens/maintaince/Maintaince";
+import AddCourierCom from "../screens/addCourierCompany/AddCourierComForm";
 
 type MainRoutePath = {
   AdminRouting: PathRouteProps[] | LayoutRouteProps[] | IndexRouteProps[];
@@ -15,8 +16,7 @@ type MainRoutePath = {
 
 //Element importing
 const MaintaincePage: JSX.Element = <Maintaince></Maintaince>;
-// const Login = import("../screens/login/Login");
-// const AddCourierCompany = import('../screens/addCourierCompany/AddCourierComForm')
+const AddCourierComPage: JSX.Element = <AddCourierCom></AddCourierCom>;
 const AddAdminPage: JSX.Element = <AddAdmin></AddAdmin>;
 
 //Main Routing path
@@ -24,8 +24,9 @@ export const RoutePath: MainRoutePath = {
   AdminRouting: [
     { path: "/maintaince", element: MaintaincePage },
     { path: "/addAdmin", element: AddAdminPage },
+    { path: "/addCourierCom", element: AddCourierComPage },
   ],
-  CompanyRouting: [],
+  CompanyRouting: [{ path: "/maintaince", element: MaintaincePage }],
   RiderRouting: [],
   CustomerRouting: [],
 };
@@ -33,7 +34,7 @@ export const RoutePath: MainRoutePath = {
 //Details for admin Login DropDown
 export const AdminDropDownDetails: NavDropDownType[] = [
   { to: "/addAdmin", name: "Admin" },
-  { to: "/addCurierCompany", name: "Courier" },
+  { to: "/addCourierCom", name: "Courier" },
 ];
 
 //Details for Corier company Login DropDown

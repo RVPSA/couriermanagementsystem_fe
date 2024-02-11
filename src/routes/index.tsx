@@ -32,14 +32,14 @@ const Navigation = () => {
               );
             })}
           {/* Courier Company */}
-          {currentUserObject.userRoleId === 2 && (
-            <>
-              <Route
-                path="/maintaince"
-                element={<Maintaince></Maintaince>}
-              ></Route>
-            </>
-          )}
+          {currentUserObject.userRoleId === 2 &&
+            RoutePath.CompanyRouting.map((item) => {
+              return (
+                <>
+                  <Route path={item.path} element={item.element}></Route>
+                </>
+              );
+            })}
         </Route>
       </Routes>
     </BrowserRouter>
