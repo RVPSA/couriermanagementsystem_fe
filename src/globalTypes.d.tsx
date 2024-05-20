@@ -17,3 +17,12 @@ type sagaInputType = {
   type: string;
   data: any;
 };
+
+//Navigation Bar dropdown
+type NavDropDownType = {
+  to: string;
+  name: string;
+};
+type NavDropDownProp = {
+  details: NavDropDownType[];
+};

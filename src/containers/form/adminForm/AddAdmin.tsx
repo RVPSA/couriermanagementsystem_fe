@@ -77,46 +77,49 @@ const AddAdminForm = (): JSX.Element => {
       <Container className="addAdminMainContainer" fluid>
         <Col xs="2"></Col>
         <Col xs="8" className="mainColumn">
-          <Row xs="8">
-            <InputField
-              id="userName"
-              name="userName"
-              placeholder="User Name"
-              type="text"
-              onchange={handleChange}
-              invalid={formErrors.userName ? true : undefined}
-              formFeedBack={formErrors.userName ? formErrors.userName : ""}
-            ></InputField>
-          </Row>
-          <Row xs="12">
-            <InputField
-              id="password"
-              name="password"
-              placeholder="Password"
-              type="password"
-              onchange={handleChange}
-              invalid={formErrors.password ? true : undefined}
-              formFeedBack={formErrors.password ? formErrors.password : ""}
-            ></InputField>
-          </Row>
-          <Row xs="12">
-            <InputField
-              id="email"
-              name="email"
-              placeholder="E-mail"
-              type="email"
-              onchange={handleChange}
-              invalid={formErrors.email ? true : undefined}
-              formFeedBack={formErrors.email ? formErrors.email : ""}
-            ></InputField>
-          </Row>
-          <Row>
-            <CButton
-              caption="Add Admin"
-              color="primary"
-              onclick={handleAddAdmin}
-            ></CButton>
-          </Row>
+          <fieldset>
+            <legend>Add Admin:</legend>
+            <Row xs="8">
+              <InputField
+                id="userName"
+                name="userName"
+                placeholder="User Name"
+                type="text"
+                onchange={handleChange}
+                invalid={formErrors.userName ? true : undefined}
+                formFeedBack={formErrors.userName ? formErrors.userName : ""}
+              ></InputField>
+            </Row>
+            <Row xs="12">
+              <InputField
+                id="password"
+                name="password"
+                placeholder="Password"
+                type="password"
+                onchange={handleChange}
+                invalid={formErrors.password ? true : undefined}
+                formFeedBack={formErrors.password ? formErrors.password : ""}
+              ></InputField>
+            </Row>
+            <Row xs="12">
+              <InputField
+                id="email"
+                name="email"
+                placeholder="E-mail"
+                type="email"
+                onchange={handleChange}
+                invalid={formErrors.email ? true : undefined}
+                formFeedBack={formErrors.email ? formErrors.email : ""}
+              ></InputField>
+            </Row>
+            <Row>
+              <CButton
+                caption="Add Admin"
+                color="primary"
+                onclick={handleAddAdmin}
+              ></CButton>
+            </Row>
+          </fieldset>
         </Col>
         <Col xs="2"></Col>
       </Container>

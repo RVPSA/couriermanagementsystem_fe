@@ -1,16 +1,7 @@
-import {
-  Button,
-  Col,
-  Container,
-  Nav,
-  NavItem,
-  NavLink,
-  Navbar,
-  NavbarBrand,
-  Row,
-} from "reactstrap";
+import { Button, Col, Container, Row } from "reactstrap";
 import "./NavigationBar.scss";
-import { Link, Navigate, redirect } from "react-router-dom";
+import NavDropDown from "../../components/navDropDown/NavDropDown";
+import { AdminDropDownDetails } from "../../routes/routingPath";
 
 const NavigationBar = (): JSX.Element => {
   let currentUser: string | null = localStorage.getItem("currentUser");
@@ -36,7 +27,9 @@ const NavigationBar = (): JSX.Element => {
             {/* Admin */}
             {currentUserObject.userRoleId === 1 && (
               <>
-                <Col>Link 1</Col>
+                <Col>
+                  <NavDropDown details={AdminDropDownDetails}></NavDropDown>
+                </Col>
                 <Col>Link 2</Col>
                 <Col>Link 3</Col>
               </>
